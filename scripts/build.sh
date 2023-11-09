@@ -99,9 +99,9 @@ if [[ -f $ICU_PATH/frameworks/icudata.xcframework/macos-$HOST_ARC ]]; then
 	cp $ICU_PATH/frameworks/icui18n.xcframework/macos-$HOST_ARC/libicui18n.a $ICU_PATH/lib/
 	cp $ICU_PATH/frameworks/icuuc.xcframework/macos-$HOST_ARC/libicuuc.a $ICU_PATH/lib/
 else
-	cp $ICU_PATH/frameworks/icudata.xcframework/macos-arm64_$HOST_ARC/libicudata.a $ICU_PATH/lib/
-	cp $ICU_PATH/frameworks/icui18n.xcframework/macos-arm64_$HOST_ARC/libicui18n.a $ICU_PATH/lib/
-	cp $ICU_PATH/frameworks/icuuc.xcframework/macos-arm64_$HOST_ARC/libicuuc.a $ICU_PATH/lib/
+	cp $ICU_PATH/frameworks/icudata.xcframework/macos-arm64_x86_64/libicudata.a $ICU_PATH/lib/
+	cp $ICU_PATH/frameworks/icui18n.xcframework/macos-arm64_x86_64/libicui18n.a $ICU_PATH/lib/
+	cp $ICU_PATH/frameworks/icuuc.xcframework/macos-arm64_x86_64/libicuuc.a $ICU_PATH/lib/
 fi
 ./b2 -j8 --stagedir=stage/macosx cxxflags="-std=c++17" -sICU_PATH="$ICU_PATH" toolset=darwin address-model=64 architecture=$BOOST_ARC $B2_BUILD_OPTIONS $LIBS_TO_BUILD
 rm -rf bin.v2
